@@ -1,8 +1,8 @@
 version: 2.1
- 
+
 orbs:
   ruby: circleci/ruby@2.0.1
- 
+
 jobs:
   hello-world:
     docker:
@@ -12,14 +12,14 @@ jobs:
       - run:
           name: Print Hello World
           command: echo "Hello, World!"
- 
+
   build-docker-image:
     docker:
-      - image: circleci/docker:latest
+      - image: cimg/docker:stable
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.24
+          version: 20.10.7
       - run:
           name: Build Docker Image
           command: |
@@ -29,7 +29,7 @@ jobs:
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker push your-image-name:your-tag
- 
+
   deploy:
     docker:
       - image: cimg/base:stable
@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Deploy Application
           command: echo "Deploying the application..."
- 
+
 workflows:
   build-and-deploy:
     jobs:
