@@ -1,10 +1,10 @@
 version: 2.1
+ 
 orbs:
   ruby: circleci/ruby@2.0.1
-
+ 
 jobs:
   hello-world:
-    # Simple job to print "Hello, World!"
     docker:
       - image: cimg/ruby:3.2.4-node
     steps:
@@ -12,21 +12,19 @@ jobs:
       - run:
           name: Print Hello World
           command: echo "Hello, World!"
-
+ 
   deploy:
-    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
-      # Replace this with steps to deploy to users
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-
+          name: Deploy Application
+          command: echo "Deploying the application..."
+ 
 workflows:
-  build-and-test:
+  build-and-deploy:
     jobs:
       - hello-world
-    # - deploy:
-    #     requires:
-    #       - hello-world
+      - deploy:
+          requires:
+            - hello-world
