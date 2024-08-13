@@ -1,12 +1,12 @@
-<div id="<%= dom_id course %>">
-  <p>
-    <strong>Name:</strong>
-    <%= course.name %>
-  </p>
+<h1>Courses</h1>
 
-  <p>
-    <strong>Description:</strong>
-    <%= course.description %>
-  </p>
+<% @courses.each do |course| %>
+  <div>
+    <h2>Name: <%= course.name %></h2>
+    <p>Description: <%= course.description %></p>
+    <%= link_to 'Show this course', course %>
+    <%= link_to 'View Assignments', course_assignments_path(course) %>
+  </div>
+<% end %>
 
-</div>
+<%= link_to "New course", new_course_path %>

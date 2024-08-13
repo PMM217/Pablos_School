@@ -1,4 +1,4 @@
-<%= form_with(model: assignment) do |form| %>
+<%= form_with(model: [@course, assignment], local: true) do |form| %>
   <% if assignment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
@@ -24,11 +24,6 @@
   <div>
     <%= form.label :due_date, style: "display: block" %>
     <%= form.date_field :due_date %>
-  </div>
-
-  <div>
-    <%= form.label :course_id, style: "display: block" %>
-    <%= form.text_field :course_id %>
   </div>
 
   <div>
