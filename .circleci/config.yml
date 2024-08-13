@@ -46,7 +46,7 @@ jobs:
       - run:
           name: deploy-application
           # added github token variable to access my github repo as it is private
-          command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf Pablos_school/; git clone https://github.com/PMM217/Pablos_School.git; source Pablos_school/deploy.sh"
+          command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf Pablos_school/; git clone https://github.com/PMM217/Pablos_School.git; source Pablos_School/deploy.sh"
 
 
 
