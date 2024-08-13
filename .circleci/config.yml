@@ -6,7 +6,9 @@ orbs:
 jobs:
   hello-world:
     docker:
-      - image: cimg/ruby:3.2.4-node
+      - image:cimg/docker:20.10
+
+ 
     steps:
       - checkout
       - run:
@@ -21,7 +23,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.24
       - run:
-          name: Build Docker Image
+          name: Build Docker Image 
           command: |
             docker build -t paulmurphy20/school_image:v1.0.0 .
       - run:
