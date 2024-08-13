@@ -4,7 +4,7 @@ orbs:
   ruby: circleci/ruby@2.0.1
  
 jobs:
-
+ 
   build-docker-image:
     docker:
       - image: cimg/docker:20.10
@@ -13,7 +13,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.24
       - run:
-          name: Build Docker Image 
+          name: Build Docker Image
           command: |
             docker build -t paulmurphy20/school_image:v1.0.0 .
       - run:
@@ -33,10 +33,7 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - hello-world
-      - build-docker-image:
-          requires:
-            - hello-world
+      - build-docker-image
       - deploy:
           requires:
             - build-docker-image
