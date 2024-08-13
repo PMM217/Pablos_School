@@ -13,22 +13,21 @@ class AssignmentsController < ApplicationController
     @assignment = @course.assignments.build
   end
 
-  def edit
-  end
-
   def create
     @assignment = @course.assignments.build(assignment_params)
-
     if @assignment.save
-      redirect_to [@course, @assignment], notice: 'Assignment was successfully created.'
+      redirect_to course_assignment_path(@course, @assignment), notice: 'Assignment was successfully created.'
     else
       render :new
     end
   end
 
+  def edit
+  end
+
   def update
     if @assignment.update(assignment_params)
-      redirect_to [@course, @assignment], notice: 'Assignment was successfully updated.'
+      redirect_to course_assignment_path(@course, @assignment), notice: 'Assignment was successfully updated.'
     else
       render :edit
     end
@@ -36,7 +35,7 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    redirect_to course_assignments_url(@course), notice: 'Assignment was successfully destroyed.'
+    redirect_to course_assignments_path(@course), notice: 'Assignment was successfully destroyed.'
   end
 
   private

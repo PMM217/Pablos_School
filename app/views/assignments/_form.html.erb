@@ -1,32 +1,32 @@
 <%= form_with(model: [@course, assignment], local: true) do |form| %>
   <% if assignment.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
 
       <ul>
-        <% assignment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% assignment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="field">
+    <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
+  <div class="field">
+    <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div>
-    <%= form.label :due_date, style: "display: block" %>
+  <div class="field">
+    <%= form.label :due_date %>
     <%= form.date_field :due_date %>
   </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

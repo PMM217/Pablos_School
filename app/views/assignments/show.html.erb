@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1><%= @assignment.title %></h1>
 
@@ -12,7 +12,5 @@
   <%= @assignment.due_date %>
 </p>
 
-<div>
-  <%= link_to 'Edit', edit_course_assignment_path(@course, @assignment) %> |
-  <%= link_to 'Back to Assignments', course_assignments_path(@course) %>
-</div>
+<%= link_to 'Edit', edit_course_assignment_path(@course, @assignment) %> |
+<%= link_to 'Back', course_assignments_path(@course) %>

@@ -6,6 +6,11 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def show
+    @course = Course.find(params[:id])
+    @students = @course.students
+  end
+
   # GET /courses/1 or /courses/1.json
   def show
   end

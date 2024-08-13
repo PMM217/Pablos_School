@@ -10,11 +10,18 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Courses', courses_path %> |
-      <%= link_to 'Students', students_path %> |
-      <%= link_to 'Assignments', course_assignments_path(@course) if @course %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <%= link_to 'School System', root_path, class: 'navbar-brand' %>
+        <div class="navbar-nav">
+          <%= link_to 'Courses', courses_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Students', students_path, class: 'nav-item nav-link' %>
+        </div>
+      </div>
     </nav>
-    <%= yield %>
+
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
