@@ -1,2 +1,4 @@
 class Student < ApplicationRecord
-end
+    has_many :enrollments, dependent: :destroy
+    has_many :courses, through: :enrollments
+  end
