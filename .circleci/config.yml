@@ -4,20 +4,10 @@ orbs:
   ruby: circleci/ruby@2.0.1
  
 jobs:
-  hello-world:
-    docker:
-      - image:cimg/docker:20.10
 
- 
-    steps:
-      - checkout
-      - run:
-          name: Print Hello World
-          command: echo "Hello, World!"
- 
   build-docker-image:
     docker:
-      - image: circleci/docker:20.10.24
+      - image: cimg/docker:20.10
     steps:
       - checkout
       - setup_remote_docker:
